@@ -35,7 +35,7 @@ module Tabs
   end
 
   def start_task(key, token, timestamp=Time.now)
-    create_metric(key, "task")
+    create_metric(key, "task") unless metric_exists?(key)
     raise MetricTypeMismatchError.new("Only task metrics can start a task") unless metric_type(key) == "task"
     get_metric(key).start(token, timestamp)
   end
