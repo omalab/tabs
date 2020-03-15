@@ -30,6 +30,10 @@ module Tabs
           Tabs::Resolution.from_seconds(resolution, complete_time - start_time)
         end
 
+        def time_elapsed_in_seconds
+          complete_time - start_time
+        end
+
         def ==(other_token)
           self.token == other_token.token
         end
